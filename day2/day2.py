@@ -1,0 +1,21 @@
+# import Regex
+import re
+
+# Open the file of inputs
+with open('day2input.txt', 'r') as f:
+    # turn the text file into a 2D list separated by occurrence range, character and password
+    pw = [re.split(' |: ', i.rstrip('\n')) for i in f.readlines()]
+
+
+# count number of passwords in the list where a character appears within the specified range
+def pw_validity(passwords):
+    counter = 0
+    for i in passwords:
+        low = int(i[0].split('-')[0])
+        high = int(i[0].split('-')[-1])
+        if low <= i[2].count(i[1]) <= high:
+            counter += 1
+    return counter
+
+
+print(pw_validity(pw))
