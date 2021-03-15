@@ -7,6 +7,7 @@ def sum_components(target):
     for i in nums:
         if target - i in nums:
             print(i, target - i)
+            print(i * (target - i))
             break
         if i >= target / 2:
             break
