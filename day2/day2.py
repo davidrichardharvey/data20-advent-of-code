@@ -18,5 +18,20 @@ def check_valid_password(array):
     return valid_count
 
 
+def new_check_valid_password(array):
+    valid_count = 0
+    for password in array:
+        allowed_space = int(password[0].split('-')[0]) - 1
+        not_allowed_space = int(password[0].split('-')[1]) - 1
+        letter_needed = password[1][0]
+        if password[2][allowed_space] == letter_needed and password[2][not_allowed_space] != letter_needed:
+            valid_count += 1
+            continue
 
-print(check_valid_password(array))
+        elif password[2][not_allowed_space] == letter_needed and password[2][allowed_space] != letter_needed :
+            valid_count += 1
+
+
+    return valid_count
+
+print(new_check_valid_password(array))
