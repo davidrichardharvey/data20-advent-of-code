@@ -1,7 +1,7 @@
 import numpy as np
 
 # Open the file of inputs
-with open('..\day1\day1input.txt', 'r') as f:
+with open('day1input.txt', 'r') as f:
     # turn the text file into a sorted list
     nums = sorted([int(i.rstrip('\n')) for i in f.readlines()])
 
