@@ -1,9 +1,11 @@
+import numpy as np
+
 # Repeat the map horizontally enough times to reach the bottom (moving right 3 and down 1 so needs 3 * number of lines)
 
 # with open('day3input.txt', 'r+') as f:
 #     lines = f.readlines()
 #     for i, line in enumerate(lines):
-#         lines[i] = lines[i].rstrip('\n') * 32 + "\n"
+#         lines[i] = lines[i].rstrip('\n') * 73 + "\n"
 #     f.seek(0)
 #
 #     for line in lines:
@@ -32,12 +34,12 @@ with open('day3tinput.txt', 'r') as r:
 
 # start moving right 3 and down 1 in the matrix. Right 3 means going through the index of each row, down 1 means
 # moving to the next row, i.e. next list element of the matrix
-def treehopping(mat):
+def treehopping(mat, right, down):
     coords = [0, 0]
     counter = 0
     while coords[1] < len(mat) - 1:
-        coords[0] += 3
-        coords[1] += 1
+        coords[0] += right
+        coords[1] += down
         if mat[coords[1]][coords[0]]:
             counter += 1
 
@@ -45,4 +47,11 @@ def treehopping(mat):
             break
     return counter
 
-print(treehopping(matrix))
+answers = []
+answers.append(treehopping(matrix, 1, 1))
+answers.append(treehopping(matrix, 3, 1))
+answers.append(treehopping(matrix, 5, 1))
+answers.append(treehopping(matrix, 7, 1))
+answers.append(treehopping(matrix, 1, 2))
+
+print(np.prod(answers))
