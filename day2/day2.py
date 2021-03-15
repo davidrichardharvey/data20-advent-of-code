@@ -10,7 +10,7 @@ with open("day2input.txt", "r") as f:
 
     # convert range into a list
     def characters(array):
-        for range_characters in f_list:
+        for range_characters in array:
             range_characters[0] = range_characters[0].split("-")
         return array
 
@@ -33,4 +33,25 @@ with open("day2input.txt", "r") as f:
                 valid += 1
         return valid
 
-print(f"Number of valid passwords: {valid_password(string_to_int(characters(f_list)))}")
+#print(f"Number of valid passwords: {valid_password(string_to_int(characters(f_list)))}")
+
+# part 2
+
+def new_index(arr1):
+    for i in arr1:
+        i[0][0] = i[0][0] - 1
+        i[0][1] = i[0][1] - 1
+    return arr1
+
+def check_letter_position(array4):
+    count = 0
+    for i in array4:
+        low = i[0][0]
+        high = i[0][1]
+        letter = i[1]
+        password = i[2]
+        if (password[low] == letter or password[high] == letter) and (password[low] != password[high]):
+            count += 1
+    return count
+
+print(check_letter_position(new_index(string_to_int(characters(f_list)))))
