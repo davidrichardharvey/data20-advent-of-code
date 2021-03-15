@@ -17,6 +17,7 @@ def pw_validity(passwords):
             counter += 1
     return counter
 
+
 # count number of passwords in the list where character appears in exactly one of the specified indexes
 def pw_validity_new(passwords):
     counter = 0
