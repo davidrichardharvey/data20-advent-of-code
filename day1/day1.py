@@ -32,3 +32,19 @@ answer = values[0] * values[1]
 
 # print the answer
 print(f"The solution is {answer}")
+
+
+# Part 2
+three_values = []
+# correct solutions when 2020 - i - j is equal to k
+for i in new_list:
+    for j in new_list:
+        for k in new_list:
+            if 2020 - i - j == k and len(three_values) < 3:
+                three_values.append(i)
+                three_values.append(j)
+                three_values.append(k)
+print(three_values)
+
+answer_two = three_values[0] * three_values[1] * three_values[2]
+print(f"The solution is {answer_two}")
