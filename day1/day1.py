@@ -1,5 +1,5 @@
 from itertools import *
-with open("2020_numbers.txt", "r") as f:
+with open("day1input.txt", "r") as f:
     content = f.readlines()
 
 new_list = []
