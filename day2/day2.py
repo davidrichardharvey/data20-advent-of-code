@@ -17,5 +17,15 @@ def pw_validity(passwords):
             counter += 1
     return counter
 
+# count number of passwords in the list where character appears in exactly one of the specified indexes
+def pw_validity_new(passwords):
+    counter = 0
+    for i in passwords:
+        index1 = int(i[0].split('-')[0]) - 1
+        index2 = int(i[0].split('-')[-1]) - 1
+        if [i[2][index1], i[2][index2]].count(i[1]) == 1:
+            counter += 1
+    return counter
 
-print(pw_validity(pw))
+
+print(pw_validity_new(pw))
