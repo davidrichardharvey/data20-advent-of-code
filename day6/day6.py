@@ -1,17 +1,16 @@
-with open('input.txt', 'r') as f:
-    array = f.read().split('\n\n')
+def sum_of_question_counts():
+    with open('input.txt', 'r') as f:
+        array = f.read().split('\n\n')
 
-# removing new line character.
-cleaned_data = []
-for string in array:
-    cleaned_data.append(string.replace('\n',''))
+    # removing new line character.
+    cleaned_data = []
+    for string in array:
+        cleaned_data.append(string.replace('\n', ''))
 
-
-def sum_of_question_counts(data):
     total_sum = 0 # variable that will hold total of all sums added together
 
     # loop for every string in the data, i.e every groups answer in the plane.
-    for element in data:
+    for element in cleaned_data:
         qus_ans = []
         for char in element:
             if char not in qus_ans:
@@ -22,5 +21,27 @@ def sum_of_question_counts(data):
     return total_sum
 
 
-a = sum_of_question_counts(cleaned_data)
+def new_soqc():
+    with open('input.txt', 'r') as f:
+        array = f.read().split('\n\n')
+
+    # removing new line character.
+    cleaned_data = []
+    for string in array:
+        cleaned_data.append(string.split('\n'))
+
+    total_sum = 0
+    for element in cleaned_data:
+        if len(element) == 1:
+            total_sum += len(element)
+        else:
+            group_ans = set(element[0]).intersection(*element[1:])
+            total_sum += len(group_ans)
+
+    return total_sum
+
+
+a = sum_of_question_counts()
 print(a)
+b = new_soqc()
+print(b)
