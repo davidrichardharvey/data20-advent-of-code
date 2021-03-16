@@ -1,6 +1,6 @@
 # Notes are for my benefit:
 
-
+#P
 def verify_password_part_one(line):
     # separates list entry into required policy and password via ':'
     required, password = [item.strip() for item in line.split(':')]
@@ -11,7 +11,6 @@ def verify_password_part_one(line):
     # separates the lowest and highest value in the requirement policy via '-'
     low, high = [int(item) for item in bounds.split('-')]
 
-    # Eliminates passwords that don't meet the length criteria
     letter_count = password.count(letter)
     if low <= letter_count <= high:
         return True

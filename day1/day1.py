@@ -10,6 +10,7 @@ for i in content:
     new_list.append(i)
 # print(content)
 
+# P
 exp_values = list(map(int, content))
 list(combinations(content, 2))
 all_pairs = list(combinations(exp_values, 2))
@@ -19,7 +20,7 @@ len(all_pairs)
 def sums_to_2020(values):
     return sum(values) == 2020
 
-
+#P
 result = list(filter(sums_to_2020, all_pairs))
 print(result)
 
