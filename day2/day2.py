@@ -37,6 +37,7 @@ with open("day2input.txt", "r") as f:
 
 # part 2
 
+#reduce index position by 1 for the range to avoid out of range
 def new_index(arr1):
     for i in arr1:
         i[0][0] = i[0][0] - 1
@@ -45,11 +46,13 @@ def new_index(arr1):
 
 def check_letter_position(array4):
     count = 0
+    # set low_limit, high_limit, letter position and password position for if statement
     for i in array4:
         low = i[0][0]
         high = i[0][1]
         letter = i[1]
         password = i[2]
+        # check if low_limit of password equals letter and same for high_limit. low_limit can't equal high_limit to be able to work(Not 100% sure why)
         if (password[low] == letter or password[high] == letter) and (password[low] != password[high]):
             count += 1
     return count
