@@ -31,12 +31,14 @@ def new_soqc():
         cleaned_data.append(string.split('\n'))
 
     total_sum = 0
+
     for element in cleaned_data:
         if len(element) == 1:
-            total_sum += len(element)
+            total_sum += len(element[0])
         else:
             group_ans = set(element[0]).intersection(*element[1:])
             total_sum += len(group_ans)
+
 
     return total_sum
 
